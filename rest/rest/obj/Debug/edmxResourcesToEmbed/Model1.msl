@@ -1,0 +1,85 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Хранилище restModelContainer" CdmEntityContainer="restEntities">
+    <EntitySetMapping Name="employee">
+      <EntityTypeMapping TypeName="restModel.employee">
+        <MappingFragment StoreEntitySet="employee">
+          <ScalarProperty Name="id_empl" ColumnName="id_empl" />
+          <ScalarProperty Name="surname_emp" ColumnName="surname_emp" />
+          <ScalarProperty Name="name_emp" ColumnName="name_emp" />
+          <ScalarProperty Name="lastname_emp" ColumnName="lastname_emp" />
+          <ScalarProperty Name="date_emp" ColumnName="date_emp" />
+          <ScalarProperty Name="id_user" ColumnName="id_user" />
+          <ScalarProperty Name="id_post" ColumnName="id_post" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="menu">
+      <EntityTypeMapping TypeName="restModel.menu">
+        <MappingFragment StoreEntitySet="menu">
+          <ScalarProperty Name="price" ColumnName="price" />
+          <ScalarProperty Name="id_menu" ColumnName="id_menu" />
+          <ScalarProperty Name="name_item" ColumnName="name_item" />
+          <ScalarProperty Name="active" ColumnName="active" />
+          <ScalarProperty Name="composition" ColumnName="composition" />
+          <ScalarProperty Name="gm" ColumnName="gm" />
+          <ScalarProperty Name="calories" ColumnName="calories" />
+          <ScalarProperty Name="bar_kitchen" ColumnName="bar_kitchen" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="position">
+      <EntityTypeMapping TypeName="restModel.position">
+        <MappingFragment StoreEntitySet="position">
+          <ScalarProperty Name="salary" ColumnName="salary" />
+          <ScalarProperty Name="id_post" ColumnName="id_post" />
+          <ScalarProperty Name="name_post" ColumnName="name_post" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="users">
+      <EntityTypeMapping TypeName="restModel.users">
+        <MappingFragment StoreEntitySet="users">
+          <ScalarProperty Name="id_user" ColumnName="id_user" />
+          <ScalarProperty Name="role_user" ColumnName="role_user" />
+          <ScalarProperty Name="login_user" ColumnName="login_user" />
+          <ScalarProperty Name="pass_user" ColumnName="pass_user" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="stock">
+      <EntityTypeMapping TypeName="restModel.stock">
+        <MappingFragment StoreEntitySet="stock">
+          <ScalarProperty Name="id_prod" ColumnName="id_prod" />
+          <ScalarProperty Name="summ" ColumnName="summ" />
+          <ScalarProperty Name="product" ColumnName="product" />
+          <ScalarProperty Name="quantity" ColumnName="quantity" />
+          <ScalarProperty Name="unit" ColumnName="unit" />
+          <ScalarProperty Name="date_sup" ColumnName="date_sup" />
+          <ScalarProperty Name="id_empl" ColumnName="id_empl" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="order11Set">
+      <EntityTypeMapping TypeName="restModel.order11">
+        <MappingFragment StoreEntitySet="order1">
+          <ScalarProperty Name="table_n" ColumnName="table_n" />
+          <ScalarProperty Name="data_order1" ColumnName="data_order1" />
+          <ScalarProperty Name="id_menu" ColumnName="id_menu" />
+          <ScalarProperty Name="id_position" ColumnName="id_position" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="dishes">
+      <EntityTypeMapping TypeName="restModel.dishes">
+        <MappingFragment StoreEntitySet="dishes">
+          <ScalarProperty Name="id_menu" ColumnName="id_menu" />
+          <ScalarProperty Name="id_empl" ColumnName="id_empl" />
+          <ScalarProperty Name="count_dish" ColumnName="count_dish" />
+          <ScalarProperty Name="date_dish" ColumnName="date_dish" />
+          <ScalarProperty Name="id_dishes" ColumnName="id_dishes" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

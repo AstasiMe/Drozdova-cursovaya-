@@ -1,0 +1,489 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="Хранилище restModel" Provider="Npgsql" ProviderManifestToken="11.5" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="dishes">
+          <Key>
+            <PropertyRef Name="id_dishes" />
+          </Key>
+          <Property Name="id_dishes" Type="int4" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="date_dish" Type="date" Nullable="false" />
+          <Property Name="count_dish" Type="int4" />
+          <Property Name="id_empl" Type="int4" />
+          <Property Name="id_menu" Type="int4" />
+        </EntityType>
+        <EntityType Name="employee">
+          <Key>
+            <PropertyRef Name="id_empl" />
+          </Key>
+          <Property Name="id_empl" Type="int4" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="surname_emp" Type="text" Nullable="false" />
+          <Property Name="name_emp" Type="text" Nullable="false" />
+          <Property Name="lastname_emp" Type="text" />
+          <Property Name="date_emp" Type="date" />
+          <Property Name="id_user" Type="int4" />
+          <Property Name="id_post" Type="int4" />
+        </EntityType>
+        <EntityType Name="menu">
+          <Key>
+            <PropertyRef Name="id_menu" />
+          </Key>
+          <Property Name="id_menu" Type="int4" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name_item" Type="text" Nullable="false" />
+          <Property Name="active" Type="bool" />
+          <Property Name="composition" Type="text" Nullable="false" />
+          <Property Name="gm" Type="int4" />
+          <Property Name="calories" Type="int4" />
+          <Property Name="bar_kitchen" Type="text" Nullable="false" />
+          <Property Name="price" Type="float8" />
+        </EntityType>
+        <EntityType Name="order1">
+          <Key>
+            <PropertyRef Name="id_position" />
+          </Key>
+          <Property Name="id_position" Type="int4" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id_menu" Type="int4" />
+          <Property Name="data_order1" Type="date" />
+          <Property Name="table_n" Type="int4" />
+        </EntityType>
+        <EntityType Name="position">
+          <Key>
+            <PropertyRef Name="id_post" />
+          </Key>
+          <Property Name="id_post" Type="int4" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name_post" Type="text" Nullable="false" />
+          <Property Name="salary" Type="float8" />
+        </EntityType>
+        <EntityType Name="stock">
+          <Key>
+            <PropertyRef Name="id_prod" />
+          </Key>
+          <Property Name="product" Type="text" Nullable="false" />
+          <Property Name="quantity" Type="int4" Nullable="false" />
+          <Property Name="unit" Type="text" />
+          <Property Name="date_sup" Type="date" Nullable="false" />
+          <Property Name="id_empl" Type="int4" />
+          <Property Name="summ" Type="float8" />
+          <Property Name="id_prod" Type="int4" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
+        <EntityType Name="users">
+          <Key>
+            <PropertyRef Name="id_user" />
+          </Key>
+          <Property Name="id_user" Type="int4" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="role_user" Type="text" Nullable="false" />
+          <Property Name="login_user" Type="text" Nullable="false" />
+          <Property Name="pass_user" Type="text" Nullable="false" />
+        </EntityType>
+        <Association Name="dishes_id_empl_fkey">
+          <End Role="employee" Type="Self.employee" Multiplicity="0..1" />
+          <End Role="dishes" Type="Self.dishes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="employee">
+              <PropertyRef Name="id_empl" />
+            </Principal>
+            <Dependent Role="dishes">
+              <PropertyRef Name="id_empl" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="dishes_id_menu_fkey">
+          <End Role="menu" Type="Self.menu" Multiplicity="0..1" />
+          <End Role="dishes" Type="Self.dishes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="menu">
+              <PropertyRef Name="id_menu" />
+            </Principal>
+            <Dependent Role="dishes">
+              <PropertyRef Name="id_menu" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="employee_id_post_fkey">
+          <End Role="position" Type="Self.position" Multiplicity="0..1" />
+          <End Role="employee" Type="Self.employee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="position">
+              <PropertyRef Name="id_post" />
+            </Principal>
+            <Dependent Role="employee">
+              <PropertyRef Name="id_post" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="employee_id_user_fkey">
+          <End Role="users" Type="Self.users" Multiplicity="0..1" />
+          <End Role="employee" Type="Self.employee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="users">
+              <PropertyRef Name="id_user" />
+            </Principal>
+            <Dependent Role="employee">
+              <PropertyRef Name="id_user" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="order1_id_menu_fkey">
+          <End Role="menu" Type="Self.menu" Multiplicity="0..1" />
+          <End Role="order1" Type="Self.order1" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="menu">
+              <PropertyRef Name="id_menu" />
+            </Principal>
+            <Dependent Role="order1">
+              <PropertyRef Name="id_menu" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="stock_id_empl_fkey">
+          <End Role="employee" Type="Self.employee" Multiplicity="0..1" />
+          <End Role="stock" Type="Self.stock" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="employee">
+              <PropertyRef Name="id_empl" />
+            </Principal>
+            <Dependent Role="stock">
+              <PropertyRef Name="id_empl" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Хранилище restModelContainer">
+          <EntitySet Name="dishes" EntityType="Self.dishes" Schema="public" store:Type="Tables" />
+          <EntitySet Name="employee" EntityType="Self.employee" Schema="public" store:Type="Tables" />
+          <EntitySet Name="menu" EntityType="Self.menu" Schema="public" store:Type="Tables" />
+          <EntitySet Name="order1" EntityType="Self.order1" Schema="public" store:Type="Tables" />
+          <EntitySet Name="position" EntityType="Self.position" Schema="public" store:Type="Tables" />
+          <EntitySet Name="stock" EntityType="Self.stock" Schema="public" store:Type="Tables" />
+          <EntitySet Name="users" EntityType="Self.users" Schema="public" store:Type="Tables" />
+          <AssociationSet Name="dishes_id_empl_fkey" Association="Self.dishes_id_empl_fkey">
+            <End Role="employee" EntitySet="employee" />
+            <End Role="dishes" EntitySet="dishes" />
+          </AssociationSet>
+          <AssociationSet Name="dishes_id_menu_fkey" Association="Self.dishes_id_menu_fkey">
+            <End Role="menu" EntitySet="menu" />
+            <End Role="dishes" EntitySet="dishes" />
+          </AssociationSet>
+          <AssociationSet Name="employee_id_post_fkey" Association="Self.employee_id_post_fkey">
+            <End Role="position" EntitySet="position" />
+            <End Role="employee" EntitySet="employee" />
+          </AssociationSet>
+          <AssociationSet Name="employee_id_user_fkey" Association="Self.employee_id_user_fkey">
+            <End Role="users" EntitySet="users" />
+            <End Role="employee" EntitySet="employee" />
+          </AssociationSet>
+          <AssociationSet Name="order1_id_menu_fkey" Association="Self.order1_id_menu_fkey">
+            <End Role="menu" EntitySet="menu" />
+            <End Role="order1" EntitySet="order1" />
+          </AssociationSet>
+          <AssociationSet Name="stock_id_empl_fkey" Association="Self.stock_id_empl_fkey">
+            <End Role="employee" EntitySet="employee" />
+            <End Role="stock" EntitySet="stock" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="restModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="employee">
+          <Key>
+            <PropertyRef Name="id_empl" />
+          </Key>
+          <Property Name="id_empl" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="surname_emp" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="name_emp" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="lastname_emp" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="date_emp" Type="DateTime" Precision="0" />
+          <Property Name="id_user" Type="Int32" />
+          <Property Name="id_post" Type="Int32" />
+          <NavigationProperty Name="position" Relationship="Self.employee_id_post_fkey" FromRole="employee" ToRole="position" />
+          <NavigationProperty Name="users" Relationship="Self.employee_id_user_fkey" FromRole="employee" ToRole="users" />
+          <NavigationProperty Name="stock" Relationship="Self.stock_id_empl_fkey" FromRole="employee" ToRole="stock" />
+          <NavigationProperty Name="dishes" Relationship="restModel.dishes_id_empl_fkey" FromRole="employee" ToRole="dishes" />
+        </EntityType>
+        <EntityType Name="menu">
+          <Key>
+            <PropertyRef Name="id_menu" />
+          </Key>
+          <Property Name="id_menu" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name_item" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="active" Type="Boolean" />
+          <Property Name="composition" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="gm" Type="Int32" />
+          <Property Name="calories" Type="Int32" />
+          <Property Name="bar_kitchen" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="price" Type="Double" />
+          <NavigationProperty Name="order11" Relationship="restModel.order1_id_menu_fkey1" FromRole="menu" ToRole="order11" />
+          <NavigationProperty Name="dishes" Relationship="restModel.dishes_id_menu_fkey" FromRole="menu" ToRole="dishes" />
+        </EntityType>
+        <EntityType Name="position">
+          <Key>
+            <PropertyRef Name="id_post" />
+          </Key>
+          <Property Name="id_post" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name_post" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="employee" Relationship="Self.employee_id_post_fkey" FromRole="position" ToRole="employee" />
+          <Property Name="salary" Type="Double" />
+        </EntityType>
+        <EntityType Name="users">
+          <Key>
+            <PropertyRef Name="id_user" />
+          </Key>
+          <Property Name="id_user" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="role_user" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="login_user" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="pass_user" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="employee" Relationship="Self.employee_id_user_fkey" FromRole="users" ToRole="employee" />
+        </EntityType>
+        <EntityType Name="stock">
+          <Key>
+            <PropertyRef Name="id_prod" />
+          </Key>
+          <Property Name="product" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="quantity" Type="Int32" Nullable="false" />
+          <Property Name="unit" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="date_sup" Type="DateTime" Precision="0" Nullable="false" />
+          <Property Name="id_empl" Type="Int32" />
+          <NavigationProperty Name="employee" Relationship="Self.stock_id_empl_fkey" FromRole="stock" ToRole="employee" />
+          <Property Name="summ" Type="Double" />
+          <Property Name="id_prod" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+        </EntityType>
+        <Association Name="employee_id_post_fkey">
+          <End Role="position" Type="Self.position" Multiplicity="0..1" />
+          <End Role="employee" Type="Self.employee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="position">
+              <PropertyRef Name="id_post" />
+            </Principal>
+            <Dependent Role="employee">
+              <PropertyRef Name="id_post" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="employee_id_user_fkey">
+          <End Role="users" Type="Self.users" Multiplicity="0..1" />
+          <End Role="employee" Type="Self.employee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="users">
+              <PropertyRef Name="id_user" />
+            </Principal>
+            <Dependent Role="employee">
+              <PropertyRef Name="id_user" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="stock_id_empl_fkey">
+          <End Role="employee" Type="Self.employee" Multiplicity="0..1" />
+          <End Role="stock" Type="Self.stock" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="employee">
+              <PropertyRef Name="id_empl" />
+            </Principal>
+            <Dependent Role="stock">
+              <PropertyRef Name="id_empl" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="restEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="employee" EntityType="Self.employee" />
+          <EntitySet Name="menu" EntityType="Self.menu" />
+          <EntitySet Name="position" EntityType="Self.position" />
+          <EntitySet Name="users" EntityType="Self.users" />
+          <EntitySet Name="stock" EntityType="Self.stock" />
+          <AssociationSet Name="employee_id_post_fkey" Association="Self.employee_id_post_fkey">
+            <End Role="position" EntitySet="position" />
+            <End Role="employee" EntitySet="employee" />
+          </AssociationSet>
+          <AssociationSet Name="employee_id_user_fkey" Association="Self.employee_id_user_fkey">
+            <End Role="users" EntitySet="users" />
+            <End Role="employee" EntitySet="employee" />
+          </AssociationSet>
+          <AssociationSet Name="stock_id_empl_fkey" Association="Self.stock_id_empl_fkey">
+            <End Role="employee" EntitySet="employee" />
+            <End Role="stock" EntitySet="stock" />
+          </AssociationSet>
+          <EntitySet Name="order11Set" EntityType="restModel.order11" />
+          <AssociationSet Name="order1_id_menu_fkey1" Association="restModel.order1_id_menu_fkey1">
+            <End Role="menu" EntitySet="menu" />
+            <End Role="order11" EntitySet="order11Set" />
+          </AssociationSet>
+          <EntitySet Name="dishes" EntityType="restModel.dishes" />
+          <AssociationSet Name="dishes_id_empl_fkey" Association="restModel.dishes_id_empl_fkey">
+            <End Role="employee" EntitySet="employee" />
+            <End Role="dishes" EntitySet="dishes" />
+          </AssociationSet>
+          <AssociationSet Name="dishes_id_menu_fkey" Association="restModel.dishes_id_menu_fkey">
+            <End Role="menu" EntitySet="menu" />
+            <End Role="dishes" EntitySet="dishes" />
+          </AssociationSet>
+          </EntityContainer>
+        <EntityType Name="order11">
+          <Key>
+            <PropertyRef Name="id_position" />
+          </Key>
+          <Property Name="id_position" Type="Int32" Nullable="false" />
+          <Property Name="id_menu" Type="Int32" />
+          <Property Name="data_order1" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="menu" Relationship="restModel.order1_id_menu_fkey1" FromRole="order11" ToRole="menu" />
+          <Property Name="table_n" Type="Int32" />
+        </EntityType>
+        <Association Name="order1_id_menu_fkey1">
+          <End Type="restModel.menu" Role="menu" Multiplicity="0..1" />
+          <End Type="restModel.order11" Role="order11" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="menu">
+              <PropertyRef Name="id_menu" />
+            </Principal>
+            <Dependent Role="order11">
+              <PropertyRef Name="id_menu" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="dishes">
+          <Key>
+            <PropertyRef Name="id_dishes" />
+          </Key>
+          <Property Name="id_dishes" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="date_dish" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="count_dish" Type="Int32" />
+          <Property Name="id_empl" Type="Int32" />
+          <Property Name="id_menu" Type="Int32" />
+          <NavigationProperty Name="employee" Relationship="restModel.dishes_id_empl_fkey" FromRole="dishes" ToRole="employee" />
+          <NavigationProperty Name="menu" Relationship="restModel.dishes_id_menu_fkey" FromRole="dishes" ToRole="menu" />
+        </EntityType>
+        <Association Name="dishes_id_empl_fkey">
+          <End Type="restModel.employee" Role="employee" Multiplicity="0..1" />
+          <End Type="restModel.dishes" Role="dishes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="employee">
+              <PropertyRef Name="id_empl" />
+            </Principal>
+            <Dependent Role="dishes">
+              <PropertyRef Name="id_empl" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="dishes_id_menu_fkey">
+          <End Type="restModel.menu" Role="menu" Multiplicity="0..1" />
+          <End Type="restModel.dishes" Role="dishes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="menu">
+              <PropertyRef Name="id_menu" />
+            </Principal>
+            <Dependent Role="dishes">
+              <PropertyRef Name="id_menu" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Хранилище restModelContainer" CdmEntityContainer="restEntities">
+          <EntitySetMapping Name="employee">
+            <EntityTypeMapping TypeName="restModel.employee">
+              <MappingFragment StoreEntitySet="employee">
+                <ScalarProperty Name="id_empl" ColumnName="id_empl" />
+                <ScalarProperty Name="surname_emp" ColumnName="surname_emp" />
+                <ScalarProperty Name="name_emp" ColumnName="name_emp" />
+                <ScalarProperty Name="lastname_emp" ColumnName="lastname_emp" />
+                <ScalarProperty Name="date_emp" ColumnName="date_emp" />
+                <ScalarProperty Name="id_user" ColumnName="id_user" />
+                <ScalarProperty Name="id_post" ColumnName="id_post" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="menu">
+            <EntityTypeMapping TypeName="restModel.menu">
+              <MappingFragment StoreEntitySet="menu">
+                <ScalarProperty Name="price" ColumnName="price" />
+                <ScalarProperty Name="id_menu" ColumnName="id_menu" />
+                <ScalarProperty Name="name_item" ColumnName="name_item" />
+                <ScalarProperty Name="active" ColumnName="active" />
+                <ScalarProperty Name="composition" ColumnName="composition" />
+                <ScalarProperty Name="gm" ColumnName="gm" />
+                <ScalarProperty Name="calories" ColumnName="calories" />
+                <ScalarProperty Name="bar_kitchen" ColumnName="bar_kitchen" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="position">
+            <EntityTypeMapping TypeName="restModel.position">
+              <MappingFragment StoreEntitySet="position">
+                <ScalarProperty Name="salary" ColumnName="salary" />
+                <ScalarProperty Name="id_post" ColumnName="id_post" />
+                <ScalarProperty Name="name_post" ColumnName="name_post" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="users">
+            <EntityTypeMapping TypeName="restModel.users">
+              <MappingFragment StoreEntitySet="users">
+                <ScalarProperty Name="id_user" ColumnName="id_user" />
+                <ScalarProperty Name="role_user" ColumnName="role_user" />
+                <ScalarProperty Name="login_user" ColumnName="login_user" />
+                <ScalarProperty Name="pass_user" ColumnName="pass_user" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="stock">
+            <EntityTypeMapping TypeName="restModel.stock">
+              <MappingFragment StoreEntitySet="stock">
+                <ScalarProperty Name="id_prod" ColumnName="id_prod" />
+                <ScalarProperty Name="summ" ColumnName="summ" />
+                <ScalarProperty Name="product" ColumnName="product" />
+                <ScalarProperty Name="quantity" ColumnName="quantity" />
+                <ScalarProperty Name="unit" ColumnName="unit" />
+                <ScalarProperty Name="date_sup" ColumnName="date_sup" />
+                <ScalarProperty Name="id_empl" ColumnName="id_empl" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="order11Set">
+            <EntityTypeMapping TypeName="restModel.order11">
+              <MappingFragment StoreEntitySet="order1">
+                <ScalarProperty Name="table_n" ColumnName="table_n" />
+                <ScalarProperty Name="data_order1" ColumnName="data_order1" />
+                <ScalarProperty Name="id_menu" ColumnName="id_menu" />
+                <ScalarProperty Name="id_position" ColumnName="id_position" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="dishes">
+            <EntityTypeMapping TypeName="restModel.dishes">
+              <MappingFragment StoreEntitySet="dishes">
+                <ScalarProperty Name="id_menu" ColumnName="id_menu" />
+                <ScalarProperty Name="id_empl" ColumnName="id_empl" />
+                <ScalarProperty Name="count_dish" ColumnName="count_dish" />
+                <ScalarProperty Name="date_dish" ColumnName="date_dish" />
+                <ScalarProperty Name="id_dishes" ColumnName="id_dishes" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Нет" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
