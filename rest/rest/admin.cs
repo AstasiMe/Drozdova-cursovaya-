@@ -48,64 +48,64 @@ namespace rest
         {
 
         }
-        public void Drop(int a)
-        {
+        //public void Drop(int a)
+        //{
 
-            switch (a)
-            {
-                case 1:
-                    ClassOrder s1 = new ClassOrder();
-                    s1.Drop(a, dataGridView1); break;
-                case 2:
-                    ClassOrder s2 = new ClassOrder();
-                    s2.Drop(a, dataGridView2); break;
-                case 3:
-                    ClassOrder s3 = new ClassOrder();
-                    s3.Drop(a, dataGridView3); break;
-                case 4:
-                    ClassOrder s4 = new ClassOrder();
-                    s4.Drop(a, dataGridView4); break;
-                case 5:
-                    ClassOrder s5 = new ClassOrder();
-                    s5.Drop(a, dataGridView5); break;
-                case 6:
-                    ClassOrder s6 = new ClassOrder();
-                    s6.Drop(a, dataGridView6); break;
-            }
+        //    switch (a)
+        //    {
+        //        case 1:
+        //            ClassOrder s1 = new ClassOrder();
+        //            s1.Drop(a, dataGridView1); break;
+        //        case 2:
+        //            ClassOrder s2 = new ClassOrder();
+        //            s2.Drop(a, dataGridView2); break;
+        //        case 3:
+        //            ClassOrder s3 = new ClassOrder();
+        //            s3.Drop(a, dataGridView3); break;
+        //        case 4:
+        //            ClassOrder s4 = new ClassOrder();
+        //            s4.Drop(a, dataGridView4); break;
+        //        case 5:
+        //            ClassOrder s5 = new ClassOrder();
+        //            s5.Drop(a, dataGridView5); break;
+        //        case 6:
+        //            ClassOrder s6 = new ClassOrder();
+        //            s6.Drop(a, dataGridView6); break;
+        //    }
 
-        } //удаление по столам
-        public void Dish(int a)
-        {
+        //} //удаление по столам
+        //public void Dish(int a)
+        //{
 
-            switch (a)
-            {
-                case 1:
-                    ClassOrder s1 = new ClassOrder();
-                    ClassSUM sum1 = new ClassSUM();
-                    s1.Report(a, Convert.ToDouble(sum1.Itog(a))); break;
-                case 2:
-                    ClassOrder s2 = new ClassOrder();
-                    ClassSUM sum2 = new ClassSUM();
-                    s2.Report(a, Convert.ToDouble(sum2.Itog(a))); break;
-                case 3:
-                    ClassOrder s3 = new ClassOrder();
-                    ClassSUM sum3 = new ClassSUM();
-                    s3.Report(a, Convert.ToDouble(sum3.Itog(a))); break;
-                case 4:
-                    ClassOrder s4 = new ClassOrder();
-                    ClassSUM sum4 = new ClassSUM();
-                    s4.Report(a, Convert.ToDouble(sum4.Itog(a))); break;
-                case 5:
-                    ClassOrder s5 = new ClassOrder();
-                    ClassSUM sum5 = new ClassSUM();
-                    s5.Report(a, Convert.ToDouble(sum5.Itog(a))); break;
-                case 6:
-                    ClassOrder s6 = new ClassOrder();
-                    ClassSUM sum6 = new ClassSUM();
-                    s6.Report(a, Convert.ToDouble(sum6.Itog(a))); break;
-            }
+        //    switch (a)
+        //    {
+        //        case 1:
+        //            ClassOrder s1 = new ClassOrder();
+        //            ClassSUM sum1 = new ClassSUM();
+        //            s1.Report(a, Convert.ToDouble(sum1.Itog(a))); break;
+        //        case 2:
+        //            ClassOrder s2 = new ClassOrder();
+        //            ClassSUM sum2 = new ClassSUM();
+        //            s2.Report(a, Convert.ToDouble(sum2.Itog(a))); break;
+        //        case 3:
+        //            ClassOrder s3 = new ClassOrder();
+        //            ClassSUM sum3 = new ClassSUM();
+        //            s3.Report(a, Convert.ToDouble(sum3.Itog(a))); break;
+        //        case 4:
+        //            ClassOrder s4 = new ClassOrder();
+        //            ClassSUM sum4 = new ClassSUM();
+        //            s4.Report(a, Convert.ToDouble(sum4.Itog(a))); break;
+        //        case 5:
+        //            ClassOrder s5 = new ClassOrder();
+        //            ClassSUM sum5 = new ClassSUM();
+        //            s5.Report(a, Convert.ToDouble(sum5.Itog(a))); break;
+        //        case 6:
+        //            ClassOrder s6 = new ClassOrder();
+        //            ClassSUM sum6 = new ClassSUM();
+        //            s6.Report(a, Convert.ToDouble(sum6.Itog(a))); break;
+        //    }
 
-        } //выгрузка в dishes заказа
+        //} //выгрузка в dishes заказа
 
 
         private void button4_Click_1(object sender, EventArgs e)
@@ -132,18 +132,21 @@ namespace rest
             Application.Restart();
             this.Close();
         }
-
-        private void button5_Click(object sender, EventArgs e)
-        {
-            int a = comboBox1.SelectedIndex + 1;
-            Dish(a);
-            Drop(a);
-        } //кнопка заказ выполнен
-
         private void button2_Click(object sender, EventArgs e)
         {
             ClassReports repost = new ClassReports();
             repost.AdminRep();
         } //кнопка закрыть смену
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            ClassOrder s = new ClassOrder();
+            s.Update(1, dataGridView7);
+            s.Update(2, dataGridView2);
+            s.Update(3, dataGridView3);
+            s.Update(4, dataGridView4);
+            s.Update(5, dataGridView5);
+            s.Update(6, dataGridView6);
+        } //обновить все
     }
 }

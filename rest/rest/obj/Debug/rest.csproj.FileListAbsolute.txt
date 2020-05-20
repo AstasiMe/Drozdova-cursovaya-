@@ -148,5 +148,5 @@ C:\Users\27dro\OneDrive\Рабочий стол\Курсовые 2020\Визуа
 C:\Users\27dro\OneDrive\Рабочий стол\Курсовые 2020\Визуальное\rest\rest\obj\Debug\rest.manager.resources
 C:\Users\27dro\OneDrive\Рабочий стол\Курсовые 2020\Визуальное\rest\rest\obj\Debug\rest.DropJob.resources
 C:\Users\27dro\OneDrive\Рабочий стол\Курсовые 2020\Визуальное\rest\rest\obj\Debug\rest.EditJob.resources
-C:\Users\27dro\OneDrive\Рабочий стол\Курсовые 2020\Визуальное\rest\rest\obj\Debug\rest.csprojAssemblyReference.cache
 C:\Users\27dro\OneDrive\Рабочий стол\Курсовые 2020\Визуальное\rest\rest\obj\Debug\rest.EAT.resources
+C:\Users\27dro\OneDrive\Рабочий стол\Курсовые 2020\Визуальное\rest\rest\obj\Debug\rest.csprojAssemblyReference.cache

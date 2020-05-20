@@ -25,6 +25,7 @@ namespace rest
                          join u in db.users on e.id_user equals u.id_user
                          select new
                          {
+                             e.id_empl,
                              e.surname_emp,
                              e.name_emp,
                              e.lastname_emp,
@@ -36,14 +37,15 @@ namespace rest
                          }).ToList();
 
             dataGridView.DataSource = query;
-            dataGridView.Columns[0].HeaderText = "Фамилия";
-            dataGridView.Columns[1].HeaderText = "Имя";
-            dataGridView.Columns[2].HeaderText = "Отчество";
-            dataGridView.Columns[3].HeaderText = "Дата рождения";
-            dataGridView.Columns[4].HeaderText = "Должность";
-            dataGridView.Columns[5].HeaderText = "Оклад";
-            dataGridView.Columns[6].HeaderText = "Логин";
-            dataGridView.Columns[7].HeaderText = "Пароль";
+            dataGridView.Columns[0].HeaderText = "№";
+            dataGridView.Columns[1].HeaderText = "Фамилия";
+            dataGridView.Columns[2].HeaderText = "Имя";
+            dataGridView.Columns[3].HeaderText = "Отчество";
+            dataGridView.Columns[4].HeaderText = "Дата рождения";
+            dataGridView.Columns[5].HeaderText = "Должность";
+            dataGridView.Columns[6].HeaderText = "Оклад";
+            dataGridView.Columns[7].HeaderText = "Логин";
+            dataGridView.Columns[8].HeaderText = "Пароль";
         }//вывод списка сотрудников
 
         public void Drop(string s, string n, string l)
@@ -135,11 +137,6 @@ namespace rest
 
             var log = db.users.SingleOrDefault(r => r.id_user == emp.id_user);
            
-
-            //foreach (string it in posit_list)
-            //{
-            //    comboBox.Items.Add(it);
-            //}
             comboBox.SelectedItem = query[0];
             t1.Text = emp.surname_emp.ToString();
             t2.Text = emp.name_emp.ToString();
@@ -159,9 +156,16 @@ namespace rest
             var log = db.users.SingleOrDefault(r => r.id_user == emp.id_user);
             var result = db.employee.SingleOrDefault(n => n.id_empl == emp.id_empl);
 
-            result.surname_emp = t1.Text.ToString();
-            result.name_emp = t2.Text.ToString();
-            result.lastname_emp = t3.Text.ToString();
+            result.surname_emp = ClassReports.NameNew(t1.Text.ToString());
+            result.name_emp = ClassReports.NameNew(t2.Text.ToString());
+            if (t3.Text != "")
+            { 
+                result.lastname_emp = ClassReports.NameNew(t3.Text.ToString());
+            } //отчество
+            else
+            {
+                result.lastname_emp = t3.Text.ToString(); 
+            }
             result.id_post = Convert.ToInt32(query[0]);
             result.date_emp= Convert.ToDateTime(m.Text);
             log.login_user = t4.Text.ToString();

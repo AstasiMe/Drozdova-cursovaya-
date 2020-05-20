@@ -42,6 +42,7 @@
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.button1 = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
+            this.button2 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // button4
@@ -50,9 +51,9 @@
             this.button4.Location = new System.Drawing.Point(27, 414);
             this.button4.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(312, 69);
+            this.button4.Size = new System.Drawing.Size(146, 69);
             this.button4.TabIndex = 23;
-            this.button4.Text = "Оплатить";
+            this.button4.Text = "Наличные";
             this.button4.UseVisualStyleBackColor = false;
             this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
@@ -191,12 +192,25 @@
             this.label6.Text = "Стол №";
             this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.button2.Location = new System.Drawing.Point(181, 414);
+            this.button2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(158, 69);
+            this.button2.TabIndex = 37;
+            this.button2.Text = "По карте";
+            this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
             // SUMorder
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonShadow;
             this.ClientSize = new System.Drawing.Size(390, 511);
+            this.Controls.Add(this.button2);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.comboBox1);
@@ -236,5 +250,6 @@
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Button button2;
     }
 }

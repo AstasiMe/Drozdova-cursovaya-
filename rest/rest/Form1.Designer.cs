@@ -36,12 +36,9 @@
             this.button1 = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.restDataSet = new rest.restDataSet();
             this.restDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.restDataSetBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.label3 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.restDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.restDataSetBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.restDataSetBindingSource1)).BeginInit();
@@ -109,17 +106,6 @@
             this.label1.Text = "Логин";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // dataGridView1
-            // 
-            this.dataGridView1.AllowUserToOrderColumns = true;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(12, 168);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 62;
-            this.dataGridView1.RowTemplate.Height = 28;
-            this.dataGridView1.Size = new System.Drawing.Size(23, 26);
-            this.dataGridView1.TabIndex = 12;
-            // 
             // restDataSet
             // 
             this.restDataSet.DataSetName = "restDataSet";
@@ -135,13 +121,6 @@
             this.restDataSetBindingSource1.DataSource = this.restDataSet;
             this.restDataSetBindingSource1.Position = 0;
             // 
-            // label3
-            // 
-            this.label3.Location = new System.Drawing.Point(8, 155);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(45, 39);
-            this.label3.TabIndex = 13;
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -149,8 +128,6 @@
             this.BackColor = System.Drawing.SystemColors.ButtonShadow;
             this.ClientSize = new System.Drawing.Size(478, 270);
             this.ControlBox = false;
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.button2);
@@ -164,7 +141,6 @@
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "REST - Авторизация";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.restDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.restDataSetBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.restDataSetBindingSource1)).EndInit();
@@ -178,11 +154,9 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.BindingSource restDataSetBindingSource;
         private restDataSet restDataSet;
         private System.Windows.Forms.BindingSource restDataSetBindingSource1;
-        private System.Windows.Forms.Label label3;
         public System.Windows.Forms.TextBox textBox2;
         public System.Windows.Forms.TextBox textBox1;
     }

@@ -81,7 +81,6 @@ namespace rest
             db.SaveChanges();
             Update(n, dataGridView);
         }
-
         public void Update(int n, DataGridView dataGridView)
         {
             restEntities db = new restEntities();
@@ -113,7 +112,6 @@ namespace rest
             }
             else MessageBox.Show("Ошибка! Это блюдо уже в наличии");
         } //менять наличие еды для false
-
         public void UpdateMenu2(int men)
         {
             restEntities db = new restEntities();
@@ -130,7 +128,6 @@ namespace rest
             }
             else MessageBox.Show("Ошибка! Этого блюда уже нет в наличии");
         } //менять наличие еды для true
-
         public void Report(int n, double SUM)
         {
             restEntities db = new restEntities();
@@ -149,7 +146,6 @@ namespace rest
             db.dishes.Add(d1);
             db.SaveChanges();
         } //добавление заказа для отчета в dishes
-
         public void ShowOrdersK(DataGridView dataGridView)
         {
             restEntities db = new restEntities();
@@ -161,7 +157,6 @@ namespace rest
             dataGridView.DataSource = query;
             dataGridView.Columns[0].HeaderText = "Название";
         }//вывод активных заказов для кухни
-
         public void ShowOrdersB(DataGridView dataGridView)
         {
             restEntities db = new restEntities();

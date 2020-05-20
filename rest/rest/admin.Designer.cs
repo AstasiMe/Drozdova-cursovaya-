@@ -44,13 +44,13 @@
             this.dataGridView3 = new System.Windows.Forms.DataGridView();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.dataGridView7 = new System.Windows.Forms.DataGridView();
-            this.button5 = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView6)).BeginInit();
@@ -64,7 +64,7 @@
             // button3
             // 
             this.button3.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.button3.Location = new System.Drawing.Point(1030, 409);
+            this.button3.Location = new System.Drawing.Point(1030, 499);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(133, 79);
             this.button3.TabIndex = 53;
@@ -103,14 +103,14 @@
             this.выходToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1202, 33);
+            this.menuStrip1.Size = new System.Drawing.Size(1202, 36);
             this.menuStrip1.TabIndex = 49;
             this.menuStrip1.Text = "menuStrip1";
             // 
             // выходToolStripMenuItem
             // 
             this.выходToolStripMenuItem.Name = "выходToolStripMenuItem";
-            this.выходToolStripMenuItem.Size = new System.Drawing.Size(80, 29);
+            this.выходToolStripMenuItem.Size = new System.Drawing.Size(80, 32);
             this.выходToolStripMenuItem.Text = "Выход";
             this.выходToolStripMenuItem.Click += new System.EventHandler(this.выходToolStripMenuItem_Click);
             // 
@@ -157,9 +157,9 @@
             // button4
             // 
             this.button4.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.button4.Location = new System.Drawing.Point(217, 487);
+            this.button4.Location = new System.Drawing.Point(1030, 159);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(172, 73);
+            this.button4.Size = new System.Drawing.Size(133, 73);
             this.button4.TabIndex = 68;
             this.button4.Text = "Обновить";
             this.button4.UseVisualStyleBackColor = false;
@@ -230,17 +230,6 @@
             this.dataGridView7.RowTemplate.Height = 28;
             this.dataGridView7.Size = new System.Drawing.Size(251, 167);
             this.dataGridView7.TabIndex = 69;
-            // 
-            // button5
-            // 
-            this.button5.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.button5.Location = new System.Drawing.Point(1030, 499);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(133, 79);
-            this.button5.TabIndex = 75;
-            this.button5.Text = "Заказ выполнен";
-            this.button5.UseVisualStyleBackColor = false;
-            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // label8
             // 
@@ -320,6 +309,17 @@
             this.label2.TabIndex = 76;
             this.label2.Text = "1";
             // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.button1.Location = new System.Drawing.Point(216, 487);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(173, 73);
+            this.button1.TabIndex = 82;
+            this.button1.Text = "Обновить все";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // admin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -328,13 +328,13 @@
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1202, 642);
             this.ControlBox = false;
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.button5);
             this.Controls.Add(this.dataGridView6);
             this.Controls.Add(this.dataGridView5);
             this.Controls.Add(this.dataGridView4);
@@ -379,19 +379,19 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button button9;
         private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.DataGridView dataGridView6;
-        private System.Windows.Forms.DataGridView dataGridView5;
-        private System.Windows.Forms.DataGridView dataGridView4;
-        private System.Windows.Forms.DataGridView dataGridView3;
-        private System.Windows.Forms.DataGridView dataGridView2;
-        private System.Windows.Forms.DataGridView dataGridView7;
         public System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label2;
+        public System.Windows.Forms.DataGridView dataGridView6;
+        public System.Windows.Forms.DataGridView dataGridView5;
+        public System.Windows.Forms.DataGridView dataGridView4;
+        public System.Windows.Forms.DataGridView dataGridView3;
+        public System.Windows.Forms.DataGridView dataGridView2;
+        public System.Windows.Forms.DataGridView dataGridView7;
+        private System.Windows.Forms.Button button1;
     }
 }

@@ -149,20 +149,20 @@
             this.просмотрToolStripMenuItem,
             this.скачатьToolStripMenuItem});
             this.отчетОВыручкеToolStripMenuItem.Name = "отчетОВыручкеToolStripMenuItem";
-            this.отчетОВыручкеToolStripMenuItem.Size = new System.Drawing.Size(445, 34);
+            this.отчетОВыручкеToolStripMenuItem.Size = new System.Drawing.Size(360, 34);
             this.отчетОВыручкеToolStripMenuItem.Text = "Отчет о выручке";
             // 
             // просмотрToolStripMenuItem
             // 
             this.просмотрToolStripMenuItem.Name = "просмотрToolStripMenuItem";
-            this.просмотрToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
+            this.просмотрToolStripMenuItem.Size = new System.Drawing.Size(201, 34);
             this.просмотрToolStripMenuItem.Text = "Просмотр";
             this.просмотрToolStripMenuItem.Click += new System.EventHandler(this.просмотрToolStripMenuItem_Click);
             // 
             // скачатьToolStripMenuItem
             // 
             this.скачатьToolStripMenuItem.Name = "скачатьToolStripMenuItem";
-            this.скачатьToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
+            this.скачатьToolStripMenuItem.Size = new System.Drawing.Size(201, 34);
             this.скачатьToolStripMenuItem.Text = "Скачать";
             this.скачатьToolStripMenuItem.Click += new System.EventHandler(this.скачатьToolStripMenuItem_Click);
             // 
@@ -173,8 +173,8 @@
             this.просмотрToolStripMenuItem1,
             this.скачатьToolStripMenuItem1});
             this.отчетОНаличииПродуктовНаСкладеToolStripMenuItem.Name = "отчетОНаличииПродуктовНаСкладеToolStripMenuItem";
-            this.отчетОНаличииПродуктовНаСкладеToolStripMenuItem.Size = new System.Drawing.Size(445, 34);
-            this.отчетОНаличииПродуктовНаСкладеToolStripMenuItem.Text = "Отчет о наличии продуктов на складе";
+            this.отчетОНаличииПродуктовНаСкладеToolStripMenuItem.Size = new System.Drawing.Size(360, 34);
+            this.отчетОНаличииПродуктовНаСкладеToolStripMenuItem.Text = "Отчет о поставке продуктов";
             // 
             // добавитьНовуюПоставкуToolStripMenuItem
             // 
@@ -327,8 +327,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem сотрудникиToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem вывестиСписокСотрудниковToolStripMenuItem;
@@ -354,5 +352,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button button2;
+        public System.Windows.Forms.DataGridView dataGridView1;
     }
 }

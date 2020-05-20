@@ -62,15 +62,21 @@ namespace rest
             restEntities db = new restEntities();
             List<employee> query = (from j in db.employee
                                     select j).ToList();
-
-            if (dataGridView1.SelectedCells.Count == 1)
+            try
             {
-                employee item = query.First(w => w.surname_emp.ToString() == dataGridView1.SelectedCells[0]
-                .OwningRow.Cells[0].Value.ToString());
+                if (dataGridView1.SelectedCells.Count == 1)
+                {
+                    employee item = query.First(w => w.id_empl.ToString() == dataGridView1.SelectedCells[0]
+                    .OwningRow.Cells[0].Value.ToString());
 
-                EditJob edit = new EditJob(item);
-                edit.Owner = this;
-                edit.Show();
+                    EditJob edit = new EditJob(item);
+                    edit.Owner = this;
+                    edit.Show();
+                }
+            }
+            catch {
+                MessageBox.Show("Обновите список сотрудников");
+
             }
         }
 

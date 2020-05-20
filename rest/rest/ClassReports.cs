@@ -15,6 +15,11 @@ namespace rest
 {
     class ClassReports
     {
+        public static string NameNew(string name)
+        {
+            string new_name = name[0].ToString().ToUpper() + name.Remove(0, 1).ToLower();
+            return new_name;
+        }
         public void AdminRep()
         {
             restEntities db = new restEntities();

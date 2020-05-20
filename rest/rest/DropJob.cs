@@ -21,9 +21,9 @@ namespace rest
         {
             try
             {
-                string s = textBox1.Text.Trim();
-                string n = textBox2.Text.Trim();
-                string l = textBox3.Text.Trim();
+                string s = ClassReports.NameNew(textBox1.Text.Trim());
+                string n = ClassReports.NameNew(textBox2.Text.Trim());
+                string l = ClassReports.NameNew(textBox3.Text.Trim());
                 ClassManager m = new ClassManager();
                 m.Drop(s, n, l);
             }
@@ -36,6 +36,27 @@ namespace rest
         private void button2_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void textBox1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            char I = e.KeyChar;
+            if ((I < 'А' || I > 'я') && I != 8)
+                e.Handled = true;
+        }
+
+        private void textBox2_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            char I = e.KeyChar;
+            if ((I < 'А' || I > 'я') && I != 8)
+                e.Handled = true;
+        }
+
+        private void textBox3_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            char I = e.KeyChar;
+            if ((I < 'А' || I > 'я') && I != 8)
+                e.Handled = true;
         }
     }
 }
