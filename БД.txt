@@ -1,0 +1,173 @@
+CREATE TABLE employee(
+	id_empl serial primary key,
+	surname_emp text not null,
+	name_emp text not null,
+	lastname_emp text,
+	date_emp date,
+	id_user int,
+	id_post int);
+
+CREATE TABLE position(
+	id_post serial primary key,
+	name_post text not null,
+	salary float8;
+
+CREATE TABLE users(
+	id_user serial primary key,
+	role_user text not null,
+	login_user text not null,
+	pass_user text not null);
+
+CREATE TABLE menu(
+	id_menu serial primary key,
+	name_item text not null,
+	active boolean,
+	composition text not null,
+	gm int,
+	calories int,
+	price float8,
+	bar_kitchen text not null);
+
+CREATE TABLE dishes(
+	id_dishes serial primary key,
+	date_dish date not null,
+	count_dish int,
+	id_menu int,
+	id_empl int);
+
+CREATE TABLE stock(
+	product text not null,
+	quantity int not null,
+	unit text,
+	summ float8,
+	date_sup date not null,
+	id_empl int);
+
+create table Order1(
+	id_position serial primary key,
+	id_menu int, 
+	data_order1 date,
+	table_n int
+);
+
+Alter Table Order1 add Foreign Key(id_menu)
+References menu(id_menu);
+
+Alter Table employee add Foreign Key(id_user)
+References users(id_user);
+
+Alter Table employee add Foreign Key(id_post)
+References position(id_post);
+
+Alter Table dishes add Foreign Key(id_menu)
+References menu(id_menu);
+
+Alter Table dishes add Foreign Key(id_empl)
+References employee(id_empl);
+
+Alter Table stock add Foreign Key(id_empl)
+References employee(id_empl);
+
+
+insert into position (name_post, salary) values ('Управляющий', 50000.0);
+insert into position (name_post, salary) values ('Администратор', 30000.0);
+insert into position (name_post, salary) values ('Официант', 20000.0);
+insert into position (name_post, salary) values ('Повар', 35000.0);
+insert into position (name_post, salary) values ('Бармен', 25000.0);
+
+insert into users (role_user, login_user, pass_user) values ('manager', 'manager', 'manager1');
+insert into users (role_user, login_user, pass_user) values ('admin', 'admin1', 'admin11');
+insert into users (role_user, login_user, pass_user) values ('admin', 'admin2', 'admin22');
+insert into users (role_user, login_user, pass_user) values ('ofic', 'ofic1', 'ofic11');
+insert into users (role_user, login_user, pass_user) values ('ofic', 'ofic2', 'ofic22');
+insert into users (role_user, login_user, pass_user) values ('ofic', 'ofic3', 'ofic33');
+insert into users (role_user, login_user, pass_user) values ('cook', 'cook1', 'cook11');
+insert into users (role_user, login_user, pass_user) values ('cook', 'cook2', 'cook22');
+insert into users (role_user, login_user, pass_user) values ('cook', 'cook3', 'cook33');
+insert into users (role_user, login_user, pass_user) values ('bar', 'bar1', 'bar11');
+insert into users (role_user, login_user, pass_user) values ('bar', 'bar2', 'bar22');
+
+insert into employee (surname_emp, name_emp, lastname_emp, date_emp, id_user, id_post)
+ values ('Степанова', 'Виктория', 'Сергеевна', '1986-06-04', 1, 1);
+
+insert into employee (surname_emp, name_emp, lastname_emp, date_emp, id_user, id_post)
+ values ('Лихотова', 'Оксана', 'Дмитриевна', '1990-08-21', 2, 2);
+
+insert into employee (surname_emp, name_emp, lastname_emp, date_emp, id_user, id_post)
+ values ('Турова', 'Елизавета', 'Павловна', '1989-02-14', 3, 2);
+
+insert into employee (surname_emp, name_emp, lastname_emp, date_emp, id_user, id_post)
+ values ('Пугач', 'Людмила', 'Денисовна', '1999-10-17', 4, 3);
+
+insert into employee (surname_emp, name_emp, lastname_emp, date_emp, id_user, id_post)
+ values ('Костина', 'Анастасия', 'Викторовна', '1995-06-13', 5, 3);
+
+insert into employee (surname_emp, name_emp, lastname_emp, date_emp, id_user, id_post)
+ values ('Черных', 'Мария', 'Сергеевна', '1998-12-05', 6, 3);
+
+insert into employee (surname_emp, name_emp, lastname_emp, date_emp, id_user, id_post)
+ values ('Сергеев', 'Тимур', 'Аркадьевич', '1987-09-18', 7, 4);
+
+insert into employee (surname_emp, name_emp, lastname_emp, date_emp, id_user, id_post)
+ values ('Степанов', 'Павел', 'Сергеевич', '1990-04-30', 8, 4);
+
+insert into employee (surname_emp, name_emp, lastname_emp, date_emp, id_user, id_post)
+ values ('Добрынин', 'Кирилл', 'Тимурович', '1988-07-19', 9, 4);
+
+insert into employee (surname_emp, name_emp, lastname_emp, date_emp, id_user, id_post)
+ values ('Шумихина', 'Валерия', 'Викторовна', '1997-02-09', 10, 5);
+
+insert into employee (surname_emp, name_emp, lastname_emp, date_emp, id_user, id_post)
+ values ('Король', 'Марат', 'Ринатович', '1995-11-22', 11, 5);
+
+
+
+
+insert into menu (name_item, active, composition, gm, calories, price, bar_kitchen) 
+values ('Капучино', TRUE, 'кофе зерновой, коровье молоко', 200, 33, 100.0, 'bar');
+insert into menu (name_item, active, composition, gm, calories, price, bar_kitchen) 
+values ('Мохито', TRUE, 'вода, лайм, мята, сахар', 270, 31, 140.0, 'bar');
+insert into menu (name_item, active, composition, gm, calories, price, bar_kitchen) 
+values ('Американо', TRUE, 'кофе зерновой', 200, 21, 80.0, 'bar');
+insert into menu (name_item, active, composition, gm, calories, price, bar_kitchen) 
+values ('Латте', TRUE, 'кофе зерновой, коровье молоко', 230, 37, 120.0, 'bar');
+insert into menu (name_item, active, composition, gm, calories, price, bar_kitchen) 
+values ('Тропикано', TRUE, 'сок апельсиновый, клубника, манго', 270, 37, 150.0, 'bar');
+
+insert into menu (name_item, active, composition, gm, calories, price, bar_kitchen) 
+values ('Тост с авокадо', TRUE, 'хлеб цельнозерновой, авокадо, яйцо, черный молотый перец', 250, 234, 230.0, 'kitchen');
+insert into menu (name_item, active, composition, gm, calories, price, bar_kitchen) 
+values ('Фетучини', TRUE, 'фетучини, сливки, шампиньоны, сыр пармезан', 300, 222, 300.0, 'kitchen');
+insert into menu (name_item, active, composition, gm, calories, price, bar_kitchen) 
+values ('Рататуй', TRUE, 'кабачки, помидоры, баклажаны, репчатый лук, болгарский перец', 250, 93, 310.0, 'kitchen');
+insert into menu (name_item, active, composition, gm, calories, price, bar_kitchen) 
+values ('Сырники', TRUE, 'творог, яйца куриные, пшеничная мука, сахар', 220, 211, 210.0, 'kitchen');
+insert into menu (name_item, active, composition, gm, calories, price, bar_kitchen) 
+values ('Боул', FALSE, 'полба, фасоль стручковая, куриное филе, авокадо', 280, 176, 320.0, 'kitchen');
+
+insert into stock (product, quantity, unit, summ, date_sup, id_empl) values ('Авокадо', 5000, 'гр', 2500.0, '2020-04-10', 2);
+insert into stock (product, quantity, unit, summ, date_sup, id_empl) values ('Яйцо куриное', 100, 'шт', 700.0, '2020-04-10', 2);
+insert into stock (product, quantity, unit, summ, date_sup, id_empl) values ('Сахар', 3000, 'гр', 900.0, '2020-04-10', 2);
+insert into stock (product, quantity, unit, summ, date_sup, id_empl) values ('Зерновой кофе', 3000, 'гр', 2880.0, '2020-04-10', 2);
+insert into stock (product, quantity, unit, summ, date_sup, id_empl) values ('Молоко коровье', 7, 'шт', 420.0, '2020-04-10', 2);
+insert into stock (product, quantity, unit, summ, date_sup, id_empl) values ('Творог', 2000, 'гр', 430.0, '2020-04-10', 2);
+insert into stock (product, quantity, unit, summ, date_sup, id_empl) values ('Масло', 3000, 'гр', 2890.0, '2020-04-10', 2);
+insert into stock (product, quantity, unit, summ, date_sup, id_empl) values ('Лук репчатый', 2000, 'гр', 40.0, '2020-04-10', 2);
+insert into stock (product, quantity, unit, summ, date_sup, id_empl) values ('Баклажаны', 3000, 'гр', 600.0, '2020-04-10', 2);
+insert into stock (product, quantity, unit, summ, date_sup, id_empl) values ('Кабачки', 3000, 'гр', 550.0, '2020-04-10', 2);
+insert into stock (product, quantity, unit, summ, date_sup, id_empl) values ('Помидоры', 3000, 'гр', 370.0, '2020-04-10', 2);
+insert into stock (product, quantity, unit, summ, date_sup, id_empl) values ('Перец черный', 100, 'гр', 80.0, '2020-04-10', 2);
+insert into stock (product, quantity, unit, summ, date_sup, id_empl) values ('Перец болгарский', 800, 'гр', 360.0, '2020-04-10', 2);
+insert into stock (product, quantity, unit, summ, date_sup, id_empl) values ('Сыр пармезан', 1000, 'гр', 2000.0, '2020-04-10', 2);
+insert into stock (product, quantity, unit, summ, date_sup, id_empl) values ('Паста фетучини', 5000, 'гр', 1150.0, '2020-04-10', 2);
+insert into stock (product, quantity, unit, summ, date_sup, id_empl) values ('Грибы шампиньоны', 3000, 'гр', 2240.0, '2020-04-10', 2);
+insert into stock (product, quantity, unit, summ, date_sup, id_empl) values ('Полба', 3000, 'гр', 700.0, '2020-04-10', 2);
+insert into stock (product, quantity, unit, summ, date_sup, id_empl) values ('Фасоль стручковая', 3000, 'гр', 400.0, '2020-04-10', 2);
+insert into stock (product, quantity, unit, summ, date_sup, id_empl) values ('Мука цельнозерновая', 4000, 'гр', 470.0, '2020-04-10', 2);
+insert into stock (product, quantity, unit, summ, date_sup, id_empl) values ('Сливки', 1000, 'гр', 270.0, '2020-04-10', 2);
+insert into stock (product, quantity, unit, summ, date_sup, id_empl) values ('Вода', 200, 'литр', 600.0, '2020-04-10', 2);
+insert into stock (product, quantity, unit, summ, date_sup, id_empl) values ('Лайм', 1000, 'гр', 480.0, '2020-04-10', 2);
+insert into stock (product, quantity, unit, summ, date_sup, id_empl) values ('Мята', 500, 'гр', 300.0, '2020-04-10', 2);
+insert into stock (product, quantity, unit, summ, date_sup, id_empl) values ('Клубника', 2000, 'гр', 400.0, '2020-04-10', 2);
+insert into stock (product, quantity, unit, summ, date_sup, id_empl) values ('Манго', 5000, 'гр', 1300.0, '2020-04-10', 2);
+insert into stock (product, quantity, unit, summ, date_sup, id_empl) values ('Сок апельсиновый', 18, 'шт', 1260.0, '2020-04-10', 2);
